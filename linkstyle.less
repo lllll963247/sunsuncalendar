@@ -1,0 +1,54 @@
+	.font(@weight:normal;@size:20px;@family:"微軟正黑體"){
+		font-weight: @weight;
+		font-size: @size;
+		font-family: @family;
+	}
+	.plink{
+		width: 40%;
+		&:hover{
+		transform: scale(1.1,1.1);
+		box-shadow: 5px 5px 5px #666;
+		}
+	}
+	.back{	
+		position: absolute;
+		top: 0;
+		width:  100%;
+		height: auto;		
+	}
+	div p{
+		.font(bold;100%;);
+		-webkit-writing-mode: vertical-rl;
+		writing-mode: vertical-lr;
+		position: absolute;
+		top: 100%;
+		font-family: "微軟正黑體";
+		color: #000;
+		text-decoration-color: #fff;
+	}
+	.door{
+		position: absolute;
+		right: 20%;
+		top: 10%;
+		width: 10%;
+		height: auto;
+	}
+	.open{
+		z-index: 20;
+		&:hover{
+			opacity: 0;
+		}
+	}
+	#show1{
+		display: none;		
+		position: absolute;
+		right: 150px;
+		top: 0;
+	}
+	.fade{
+		animation: fade 1.5s;
+	}
+	@keyframes fade {
+		from{opacity:0.4}
+			to{opacity:1}
+	}

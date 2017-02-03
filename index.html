@@ -1,0 +1,115 @@
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="google-site-verification" content="puH_yT0-9Qhznee15A8YWQkem8rtazbn3DZZa_D08R8" />
+	<link rel="stylesheet/less" type="text/css" href="style.less" />
+
+	<script src="less.js"></script>
+	<link rel="SHORTCUT ICON" href="123.png">
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+	<title>上上國考行事曆</title>
+w
+</head>
+<body>
+<!--<p id="test" class="test" style="color: #f00">test</p>-->
+<div id="marquee"><marquee align="middle" width="1024px" direction="left" behavior="scroll" ><span class="blink">※</span>最新消息<span class="blink">※</span> 回應大家給的建議，"一般警察"考試包含在警察特考(6/17)裡面，台電目前還沒有考試消息，另外中油也是，關於"心理測驗員"的部分，一開始我有把所有專職技術人員放進去，但考慮板面太亂就拿掉了，因為每一項實在是太多了，我之後會再研究，"篩選"的功能，敬請期待！</marquee></div>
+<div id="calendar">&nbsp;</div>
+<div class="openfunc" id="openfunc" onClick="openfunc()">&rang;</div>
+<div class="func" id="func">
+	<span class="closefunc" onClick="closefunc()">&times;</span>
+	<a class="insert" onClick="opennotest()">找不到考試？</a>
+	<a class="insert" onClick="openfeedback()">意見回饋</a>
+	<a class="insert" href="https://www.facebook.com/sunsuncalendar/" target="_blank">臉書粉絲團</a>
+	<a href="link.html">相關連結<span class="blink newstyle">new</span></a>
+	<a class="insert" onClick="alert('敬請期待');">手機APP</a>
+	
+	<!-- <a class="insert" id="search1" onClick="search1()">搜尋</a>
+	<form action="search.php" id="searchtext" style="display: none" method="post">
+		<input type="text" name="search"><span id="closesearch" onClick="closesearch()">&times;</span><input type="submit">
+	</form> -->
+	<!--<a class="insert" >篩選</a>
+	<form class="option" name="option" method="post" action="123.php">
+		<input type="checkbox" name="option[]" value="國營事業" checked>國營事業
+		<input type="checkbox" name="option[]" value="考選部" checked>考選部<br>
+		<input type="checkbox" name="option[]" value="銀行招考" checked>銀行招考<br>
+		<input type="checkbox" name="option[]" value="就業考試" checked>就業考試<br>
+		<input type="checkbox" name="option[]" value="專職技術人員考試" >專職技術人員考試
+	</form>-->
+</div>
+<div id="notest">
+	<span id="close">&times;</span>
+	<div class="input">
+		<form action="test.php" method="post">		
+			考試名稱(必填)：<input type="text" name="name"><br>(如：關務特考、地方特考、中鋼招考等)<br>
+			報名日期：<input type="date" name="signupdate">到<input type="date" name="signupdateo"><br>
+			考試日期：<input type="date" name="testdate">到<input type="date" name="testdateo"><br>
+			考試類別：<select name="sort">
+						<option value="">請選擇</option>
+						<option value="考選部">考選部</option>
+						<option value="專職技術人員">專職技術人員</option>
+						<option value="國營事業">國營事業</option>
+						<option value="其他">其他</option>
+					</select><br>
+			相關網站/連結：<input type="text" name="testlink"><br>
+			<button type="submit" name="Insert">送出</button>
+			<button type="reset">重新輸入</button>			
+			<h4>輸入你想要新增的考試，我們經過審核就會加入行事曆中囉!</h4>
+			<h4><b>每天更新，審核快速</b></h4>
+			<h4>※考試名稱一定要填，其他可空白。</h4>
+		</form>
+	</div>
+</div>
+<div id="feedback">
+	<span id="close">&times;</span>
+	<div class="input">	
+		<form action="feedback.php" method="post">
+			意見回饋：<br><br>
+			<textarea class="textbox" name="feedbackcontent"></textarea><br>
+			<button type="submit" name="content">送出</button>
+			<p>什麼都可以講，對這個行事曆有什麼意見都可以說出來，不要放在心上，只要是合理的，我都會做改進，讓這個行事曆更好。</p>
+		</form>
+	</div>
+</div>
+<script>/*-------------------------script-------------------------------*/
+function closesearch(){
+	document.getElementById('searchtext').style.display='none';
+	document.getElementById('search1').style.display='block';
+}
+function search1(){
+	document.getElementById('search1').style.display='none';
+	document.getElementById('searchtext').style.display='block';
+}
+function opennotest(){
+	document.getElementById('notest').style.display='block';
+	document.getElementById('feedback').style.display='none';
+}
+function openfeedback(){
+	document.getElementById('feedback').style.display='block';
+	document.getElementById('notest').style.display='none';
+}
+function openfunc(){
+	document.getElementById('func').style.width='225px';
+}
+function closefunc(){
+	document.getElementById('func').style.width='0px';
+}
+var modal = document.getElementById('notest');
+var modal2 = document.getElementById('feedback');
+document.getElementById('close').onclick = function() {
+    modal.style.display = "none";
+	modal2.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+	if(event.target == modal2){
+        modal2.style.display = "none";
+    }
+}
+</script> 
+<script src="table.js" type="text/javascript" ></script>
+</body>
+</html>

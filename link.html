@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<link rel="SHORTCUT ICON" href="123.png">
+	<title>上上國考行事曆-相關連結</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet/less" type="text/css" href="linkstyle.less" />
+	<script src="less.js"></script>
+</head>
+
+<body>
+	<a href="http://wwwc.moex.gov.tw/main/home/wfrmHome.aspx?menu_id=3" target="_blank" >
+		<img id="picture0" class="plink" src="img/moex.JPG"  onmouseenter="show1(event)" onmouseleave="hide1()"></a><br>                    
+	<a href="http://exam.taipower.com.tw/" target="_blank">
+		<img id="picture1" class="plink" src="img/gov.jpg"   onmouseenter="show1(event)" onmouseleave="hide1()"></a><br>                           
+	<a href="http://www.yamol.tw/main.php" target="_blank">	
+		<img id="picture2" class="plink" src="img/yamol.JPG" onmouseenter="show1(event)" onmouseleave="hide1()"></a><br>
+
+<div id="show1"></div>
+<div id="door" class="door">
+	<a href="http://www.sunsuncalendar.com"><img class="back" src="img/open.png" ><img class="back open" src="img/close.png" ></a>
+	<p>回到首頁</p>
+</div>
+<script type="text/javascript">
+
+	function show1(event){
+		document.getElementById("door").style.display='none';
+		document.getElementById('show1').style.display='block';
+		change(event.target.id);		
+	}
+	function hide1(){
+		document.getElementById("door").style.display='block';
+		document.getElementById('show1').style.display='none';
+		clearTimeout(t);
+	}
+
+	jsonobj = {
+		"all" : [
+			{"picture" : [
+						"<img src ='img/moex/1.JPG' class='fade'>",
+						"<img src ='img/moex/2.JPG' class='fade'>",
+						"<img src ='img/moex/3.JPG' class='fade'>"]},
+			{"picture" : [
+						"<img src ='img/gov/1.JPG' class='fade'>",
+						"<img src ='img/gov/2.JPG' class='fade'>",
+						"<img src ='img/gov/3.JPG' class='fade'>"]},
+			{"picture" : [
+						"<img src ='img/yamol/1.JPG' class='fade'>",
+						"<img src ='img/yamol/2.JPG' class='fade'>",
+						"<img src ='img/yamol/3.JPG' class='fade'>"]}
+				]
+	}
+	
+
+	var i = 0;
+	var c;
+
+	function change(c){
+		if(i>=3){
+			i=0;
+		}
+		c = c.replace("picture","");
+		document.getElementById('show1').innerHTML=jsonobj.all[c].picture[i];
+		i++;
+		t = setTimeout(function(){change(c)} ,1500);		
+	}
+
+	
+
+
+	
+
+	
+</script>
+</body>
+</html>
